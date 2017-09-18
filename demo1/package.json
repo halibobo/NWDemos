@@ -1,0 +1,8 @@
+{
+    "name": "qianmiMain",
+    "alias": "QianmiClient",
+    "version": "1.0.1",
+    "description": "an application from qianmi",
+    "main": "index.html",
+    "author": "千米网"
+}
