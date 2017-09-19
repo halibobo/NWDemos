@@ -3,7 +3,7 @@
     "alias": "nw demo",
     "version": "1.0.1",
     "description": "an application",
-    "main": "tray/index.html",
+    "main": "fileExplorer/index.html",
     "author": "千米网",
     "node-main": "index.js",
     "scripts": {
@@ -19,5 +19,9 @@
       "license": "ISC",
     "devDependencies": {
         "nw": "^0.12.0"
+    },
+    
+    "webkit": {
+        "plugin": true
     }
 }

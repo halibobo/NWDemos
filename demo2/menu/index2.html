@@ -1,40 +1,37 @@
+<!DOCTYPE html>
 <html>
-    <head>
-    <title>menuDemo</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    </head>
-    <body >
-    <h1>menu api 测试</h1>
-    <script>
-        // Load native UI library
-        var gui = require('nw.gui');
-        var win = gui.Window.get();
-        //创建window menu
-        var windowMenu = new gui.Menu({ type: 'menubar' });
-        var windowSubmenu = new gui.Menu();
-        var subMenuItem = new gui.MenuItem({ label: '子菜单项' });
-        windowSubmenu.append(subMenuItem);
-        windowMenu.append(
-            new gui.MenuItem({ label: '子菜单', submenu: windowSubmenu })
-        );
-        win.menu = windowMenu;
-        // Create an empty menu
-        var menu = new gui.Menu();
-        // Add some items
-        menu.append(new gui.MenuItem({ label: 'Item A' }));
-        menu.append(new gui.MenuItem({ label: 'Item B' }));
-        menu.append(new gui.MenuItem({ type: 'separator' }));
-        menu.append(new gui.MenuItem({ label: 'Item C' }));
-        // Remove one item
-        menu.removeAt(1);
-        // Popup as context menu
-        menu.popup(10, 10);
-        // Iterate menu's items
-        for (var i = 0; i < menu.items.length; ++i) {
-            var element = document.createElement('div');
-            element.appendChild(document.createTextNode(menu.items[i].label));
-            document.body.appendChild(element);
-        }
-    </script>
-    </body>
-    </html>
+<head>
+  <title>Context Menu</title>
+</head>
+<body style="width: 100%; height: 100%;">
+
+<p>'Right click' to show context menu.</p>
+
+<script>
+// 创建一个空菜单
+var menu = new nw.Menu();
+
+// 添加一些文本选项
+menu.append(new nw.MenuItem({
+  label: 'Item A',
+  click: function(){
+    alert('You have clicked at "Item A"');
+  }
+}));
+menu.append(new nw.MenuItem({ label: 'Item B' }));
+menu.append(new nw.MenuItem({ type: 'separator' }));
+menu.append(new nw.MenuItem({ label: 'Item C' }));
+
+// 绑定"contextmenu"事件
+document.body.addEventListener('contextmenu', function(ev) {
+  // 阻止弹出默认菜单
+  ev.preventDefault();
+  // 在你点击的位置弹出自定义菜单
+  menu.popup(ev.x, ev.y);
+
+  return false;
+}, false);
+
+</script>  
+</body>
+</html>
