@@ -1,0 +1,27 @@
+<html>
+    <head>
+    <title>dialogDemo</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    </head>
+    <body >
+    <h1>dialog 测试</h1>
+    <!-- <input id="fileDialog" type="file" /> -->
+    <!-- <input id="fileDialog" type="file" multiple /> -->
+    <!-- <input id="fileDialog" type="file" nwdirectory /> -->
+    <!-- <input id="fileDialog" type="file" nwsaveas /> -->
+    <!-- <input id="fileDialog" type="file" nwworkingdir="D:\" /> -->
+    <!-- <input id="fileDialog" type="file" nwsaveas="aa.txt"/> -->
+    <input id="fileDialog" type="file" multiple accept=".html"/>
+    <script>
+        var chooser = document.querySelector('#fileDialog');
+        chooser.addEventListener("change", function (evt) {
+            apendText(this.value);
+        }, false);
+        function apendText(text) {
+            var element = document.createElement('div');
+            element.appendChild(document.createTextNode(text));
+            document.body.appendChild(element);
+        }
+    </script>
+    </body>
+    </html>

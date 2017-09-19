@@ -3,8 +3,9 @@
     "alias": "nw demo",
     "version": "1.0.1",
     "description": "an application",
-    "main": "index.html",
+    "main": "file/index.html",
     "author": "千米网",
+    "node-main": "index.js",
     "scripts": {
         "start": "nw"
     },

@@ -1,0 +1,35 @@
+<html>
+    <head>
+    <title>windowdemo</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    </head>
+    <body >
+    <h1>window api 测试</h1>
+    <script>
+        var gui = require('nw.gui');
+        var win = gui.Window.get();
+        win.on('minimize', function () {
+            var element = document.createElement('div');
+            element.appendChild(document.createTextNode('窗口最小化'));
+            document.body.appendChild(element);
+        });
+        win.minimize();
+        //var new_win = gui.Window.get(
+        // window.open('[http://ebook.xuanhun521.com](http://ebook.xuanhun521.com/)')
+        //);
+        var new_win = gui.Window.open('http://www.dahei.me', {
+            position: 'center',
+            width: 901,
+            height: 127,
+            focus: true
+        });
+        new_win.on('focus', function () {
+            var element = document.createElement('div');
+            element.appendChild(document.createTextNode('新窗口被激活'));
+            document.body.appendChild(element);
+            //Unlisten the minimize event
+            win.removeAllListeners('minimize');
+        });
+    </script>
+    </body>
+    </html>
