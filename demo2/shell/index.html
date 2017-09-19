@@ -1,0 +1,30 @@
+<html>
+    <head>
+    <title>shellDemo</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    </head>
+    <body >
+    <h1>shell 测试</h1>
+    <button onclick="openInexplorer()">在默认浏览器中打开玄魂的电子书</button>
+    <button onclick="openPdf()">打开pdf</button>
+    <button onclick="showPdfInFloder()">打开pdf所在的文件夹</button>
+    <script>
+        // Load native UI library.
+        var gui = require('nw.gui');
+        var shell = gui.Shell;
+        function openInexplorer()
+        {
+        shell.openExternal('http://ebook.xuanhun521.com');
+        }
+        function openPdf()
+        {
+        shell.openItem('D:\\101.pdf');
+        // shell.showItemInFolder方法，在文件夹中显示并选中该文件。
+        }
+        function showPdfInFloder()
+        {
+        shell.showItemInFolder('D:\\学习资料\\技术类教程\\操作系统\\101-深入理解Linux内核(第三版 英文版)-1030页-pdf-免费下载.pdf');
+        }
+    </script>
+    </body>
+    </html>

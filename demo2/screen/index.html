@@ -1,0 +1,24 @@
+<html>
+    <head>
+    <title>玄魂测试node-webkit 全屏api</title>
+    <meta charset="utf-8" />
+    </head>
+    <body >
+    <button id="full"> 全屏</button>
+    <button id="exitFull">退出全屏</button>
+    <div>
+    </div>
+    <script>
+        var gui = require('nw.gui');
+        var win = gui.Window.get();
+        var fullBt = document.querySelector('#full');
+        fullBt.addEventListener("click", function (evt) {
+            win.enterFullscreen();
+        }, false);
+        var exitBt = document.querySelector('#exitFull');
+        exitBt.addEventListener("click", function (evt) {
+            win.leaveFullscreen();
+        }, false);
+    </script>
+    </body>
+    </html>
